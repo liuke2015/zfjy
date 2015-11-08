@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>表格排序</title>
+    <link charset="utf-8" type="text/css" rel="stylesheet" href="css/table.css"/>
+</head>
+<body>
+<div id="tab">
+    <table cellspacing="0" cellpadding="0" id="oTable">
+        <thead>
+        <tr>
+            <th class="cursor">姓名</th>
+            <th class="cursor">年龄</th>
+            <th class="cursor">分数</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!--<tr>
+            <td>张三</td>
+            <td>18</td>
+            <td>99</td>
+        </tr>
+        <tr>
+            <td>张三</td>
+            <td>18</td>
+            <td>99</td>
+        </tr>-->
+        </tbody>
+    </table>
+</div>
+<script type="text/javascript">
+    function A() {
+        this.x = 100;
+        this.getX = function () {
+            console.log(this.x);
+            console.log(this.y);
+        }
+    }
+    A.prototype.getY = function () {
+        console.log(this.x);
+    }
+    function B() {
+        this.y = 200;
+        this.x = 300;
+        this.getY = function(){
+            console.log(this.x);
+            console.log(this.y);
+        }
+    }
+    B.prototype=new A;
+    var a = new A;
+    var b = new B;
+    a.getX();
+    b.getX();
+    b.getY();
+    console.log(b.y);
+    b.__proto__.getY();
+    B.prototype.getY();
+    console.log(b.constructor);
+
+</script>
+<!--由于在table.js要使用utils和json下的方法和数据，所以在引入的时候我们需要把顺序控制好[顺序问题]-->
+<script charset="utf-8" type="text/javascript" src="js/utils.js"></script>
+<script charset="utf-8" type="text/javascript" src="js/json.js"></script>
+<script charset="utf-8" type="text/javascript" src="js/table.js"></script>
+</body>
+</html>
