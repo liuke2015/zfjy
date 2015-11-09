@@ -9,15 +9,17 @@
 </body>
 </html>
 <script>
-    function average(){
-        var a=arguments;
-        [].sort.call(a,function(a,b){return a-b});
+    function average() {
+        var a = arguments;
+        [].sort.call(a, function (a, b) {
+            return a - b
+        });
         [].pop.call(a);
         [].shift.call(a);
-        var str=[].join.call(a,"+");
-        var n=eval(str);
-        return n/ a.length;
+        var str = [].join.call(a, "+");
+        var n = eval(str);
+        return n / a.length;
 
     }
-    var n=average(100,98,78,91,92,88,83,79);
+    var n = average(100, 98, 78, 91, 92, 88, 83, 79);
 </script>

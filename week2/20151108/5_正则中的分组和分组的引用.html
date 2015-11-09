@@ -15,7 +15,7 @@
     var a=s2.match(reg);
     console.log(a);
     if(reg.test(s2)){
-        RegExp.$1
+        RegExp.$1;
         RegExp.$2;
     }
 //就是说match和exec方法在正则不加修正符g的前提，功能一样。一但加g，match就不会去理会分组的内容了
@@ -23,7 +23,7 @@
     var reg2=/(\d)(\d)/;
     var str="12abc45ii879dkdd223";
     var a1=str.match(reg1);
-    var a2=str.match(reg2)
+    var a2=str.match(reg2);
     //match在运行时，如果正则加g，则在捕获的时候，忽略分组
     //分组的引用
     var reg=/(\d)\d\1/;//后边的\1表示是：这儿的内容是对第一个分组内容的内容，也就是说这儿出现的内容要和第一个分组出现的必须一样
@@ -31,13 +31,13 @@
     //匹配不捕获,钍对于分组来说的。只让括号里的正则来验证字符，但不把把这一部分捕获出来。
     var reg2=/(?:\d)(?:\d)/;
     var str="12abc45ii879dkdd223";
-    console.log(reg2.exec(str))
+    console.log(reg2.exec(str));
 
     var str="777777888888866666666633333333";
     //去掉这个字符中的重复数字
     var reg=/(\d)\1+/g;
-    reg=/\d+/
-    reg=/1+/
+    reg=/\d+/;
+    reg=/1+/;
 
     str=str.replace(reg,"$1");//表示在str这个字符中，把用reg匹配到的内容，用reg这个正则的第一个分组中捕获到的内容来替换掉
     //当replace在执行替换的时候，匹配和替换的工作会执行四遍，
@@ -60,9 +60,9 @@
     //alert(reg.exec(str2));
     alert(reg.exec(str));
 
-    var str3="88zhufengpeixun8888888"
+    var str3="88zhufengpeixun8888888";
     //var reg3=/(?=88)\w+/;
-    var reg3=/(?=zhufengpeixun)\d+/
+    var reg3=/(?=zhufengpeixun)\d+/;
     alert(reg3.exec(str3));//说明这种带条件的正则，条件出现在左则的时候要慎重
 
     //负向预查

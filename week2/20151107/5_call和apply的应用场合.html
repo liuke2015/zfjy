@@ -22,24 +22,24 @@
 <script>
     //1、明显的要改变this的指向
     //2、需要“借”用其它类上的方法的时候，需要用到
-    var oLis=document.getElementsByTagName("li");
-   /* try{
-        var a=[].slice.call(oLis,0);
-    }catch (e){
+    var oLis = document.getElementsByTagName("li");
+    /* try{
+     var a=[].slice.call(oLis,0);
+     }catch (e){
 
-    }*/
-    var a=[].slice.call(oLis,0);//this不是javascript对象
+     }*/
+    var a = [].slice.call(oLis, 0);//this不是javascript对象
     //凡是类似于数组的数据，都可以用call或apply的方式来间接的调用数组类上的方法
-    Array.prototype.slice2=function(m,n){
-        var a=[];
-        n=n||this.length;
-        for(var i=m;i<n;i++){
+    Array.prototype.slice2 = function (m, n) {
+        var a = [];
+        n = n || this.length;
+        for (var i = m; i < n; i++) {
             a.push(this[i]);
         }
         return a;
-    }
+    };
 
-//IE 浏览器的很多核心的功能不是由浏览器本身完成的，由操作系统来完成的。
+    //IE 浏览器的很多核心的功能不是由浏览器本身完成的，由操作系统来完成的。
     //activeX 象flash，DOM，ajax，都是操作系统来完成的。
 
 </script>

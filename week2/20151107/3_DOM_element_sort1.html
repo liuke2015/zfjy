@@ -20,7 +20,7 @@
 </body>
 </html>
 <script>
-    var oLis=document.getElementsByTagName("li");
+    var oLis = document.getElementsByTagName("li");
     /*var obj=[{name:"rose",age:22},{name:"tom",age:18},{name:"jack",age:"33"},{name:"jerry",age:26}];
      //按着每个对象的年龄进行排序
 
@@ -34,16 +34,16 @@
 
      })
      */
-    var a=[];
-    for(var i=0;i<oLis.length;i++){
+    var a = [];
+    for (var i = 0; i < oLis.length; i++) {
         a.push(oLis[i]);
     }
-    a.sort(function(a,b){
-        return a.innerHTML- b.innerHTML;
+    a.sort(function (a, b) {
+        return a.innerHTML - b.innerHTML;
     });
-var oUl=a[0].parentNode;
-    oUl.innerHTML="";
-    for(var i=0;i< a.length;i++){
+    var oUl = a[0].parentNode;
+    oUl.innerHTML = "";
+    for (var i = 0; i < a.length; i++) {
         //alert(i);
         oUl.appendChild(a[i]);//按着数组里的li的顺序，重新调整文档的结构。
     }

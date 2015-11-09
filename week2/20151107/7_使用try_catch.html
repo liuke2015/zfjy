@@ -22,35 +22,35 @@
 <script>
     //1、明显的要改变this的指向
     //2、需要“借”用其它类上的方法的时候，需要用到
-    var oLis=document.getElementsByTagName("li");
-/*    try{
-        var a=[].slice.call(oLis,0);
-    }catch(e){
-        var a=[];
-        for(var i=0;i<oLis.length;i++){
-            a.push(oLis[i]);
-        }
-    }*/
-    function listToArray(list){
-        try{
-            return Array.prototype.slice.call(list,0)
-        }catch(e){
-            var a=[];
-            for(var i=0;i<list.length;i++){
+    var oLis = document.getElementsByTagName("li");
+    /*    try{
+     var a=[].slice.call(oLis,0);
+     }catch(e){
+     var a=[];
+     for(var i=0;i<oLis.length;i++){
+     a.push(oLis[i]);
+     }
+     }*/
+    function listToArray(list) {
+        try {
+            return Array.prototype.slice.call(list, 0)
+        } catch (e) {
+            var a = [];
+            for (var i = 0; i < list.length; i++) {
                 a.push(list[i]);
             }
             return a;
         }
     }
-    var a=listToArray(oLis)
-    a.sort(function(a,b){
-        return a.innerHTML- b.innerHTML;
+    var a = listToArray(oLis);
+    a.sort(function (a, b) {
+        return a.innerHTML - b.innerHTML;
     });
-/*    [].sort.call(oLis,function(a,b){
-        return a.innerHTML- b.innerHTML;
-    });*/
-    var oUl=a[0].parentNode;
-    for(var i=0;i< a.length;i++){
+    /*    [].sort.call(oLis,function(a,b){
+     return a.innerHTML- b.innerHTML;
+     });*/
+    var oUl = a[0].parentNode;
+    for (var i = 0; i < a.length; i++) {
         oUl.appendChild(a[i]);
     }
 </script>
