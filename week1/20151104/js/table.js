@@ -39,7 +39,7 @@ function sortList(n) {
     //1、把类数组转化为数组
     var ary = utils.listToArray(rowList);
     //2、调用sort进行排序
-    ary.sort(function(a, b) {
+    ary.sort(function (a, b) {
         //cells获取某一行的所有列(table里面独有的属性),我们让当前行的n列中的内容和下一行n列中的内容进行比较实现排序
         //可能某一列的内容是汉字
         var cur = a.cells[n].innerHTML;
@@ -81,7 +81,7 @@ var oThs = tHead.getElementsByTagName("th");
 //};
 for (var i = 0; i < oThs.length; i++) {
     oThs[i].index = i;
-    oThs[i].onclick = function() {
+    oThs[i].onclick = function () {
         sortList.call(this, this.index);
     }
 }
