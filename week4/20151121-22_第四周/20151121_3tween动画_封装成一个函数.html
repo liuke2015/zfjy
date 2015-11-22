@@ -54,6 +54,7 @@ animate(ele,{left:850,top:500},1500,['zfLinear','easeIn'],callback)
         var change = target - begin;
         var times = 0;
         var interval = 15;
+
         function step() {
             times += interval;
             if (times < duration) {
@@ -63,6 +64,7 @@ animate(ele,{left:850,top:500},1500,['zfLinear','easeIn'],callback)
                 window.clearInterval(timer);
             }
         }
+
         timer = window.setInterval(step, interval);
     }
     ele.onclick = function () {
