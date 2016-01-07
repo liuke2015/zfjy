@@ -129,6 +129,55 @@
 
 <script type="text/javascript" src="js/utils-1.0.min.js"></script>
 <script type="text/javascript">
+    var oBox=document.getElementById("box");
+    var spanList=oBox.getElementsByTagName("span");
+
+    for(var i=0;i<spanList.length;i++){
+        var curSpan=spanList[i];
+        var nex=utils.next(curSpan);
+        if(nex && nex.tagName.toLowerCase()=="ul"){
+            curSpan.style.cursor="pointer"
+        }
+    }
+    var showHide=function(curEle){
+        var nex=utils.next(curEle);
+        var pre=utils.prev(curEle);
+
+        if(pre && pre.tagName.toLowerCase()=="em"){
+         var isBlock=utils.css(nex,"display");
+            if(isBlock=="block"){
+                //当前显示，将其隐藏
+                nex.style.display="none";
+                utils.removeClass(pre,"open");
+                //将其子孙也隐藏
+                var allUl=nex.getElementsByTagName("ul");
+                var allEm=nex.getElementsByTagName("em");
+                for(var i=0;i<allUl.length;i++){
+                    allUl[i].style.display="none";
+                    utils.removeClass(allEm[i],"open");
+                }
+
+            }else{
+                //当前隐藏，将其显示
+                nex.style.display="block";
+                utils.addClass(pre,"open");
+
+            }
+        }
+    };
+    oBox.onclick=function(e){
+       e=e||window.event;
+        e.target= e.target|| e.srcElement;
+        if(e.target.tagName.toLowerCase()=="em"){
+            var nex=utils(e.target);
+            showHide(nex);
+        }else if(e.target.tagName.toLowerCase()=="span"){
+            showHide(e.target);
+        }
+    }
+</script>
+
+<!--<script type="text/javascript">
     var box = document.getElementById("box");
     var spanList = box.getElementsByTagName("span");
 
@@ -184,6 +233,6 @@
             showAndHid(nex);
         }
     };
-</script>
+</script>-->
 </body>
 </html>
